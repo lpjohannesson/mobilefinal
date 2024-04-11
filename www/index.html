@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="js/lib/jquery-2.1.4.js"></script>
+    <script src="js/lib/jquery.mobile-1.4.5.js"></script>
+    <script src="js/lib/jquery.validate.js"></script>
+
+    <link href="css/lib/jquery.mobile-1.4.5.css" rel="stylesheet">
+    <link href="css/index.css" rel="stylesheet">
+</head>
+<body>
+    <div id="posts-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a class="ui-btn-active ui-state-persist" href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Posts</h2>
+            <a href="#edit-post-page" data-role="button" data-theme="b" onclick="addPost()">Add post</a>
+            <ul id="posts-list" class="ui-listview-inset" data-role="listview"></ul>
+        </section>
+    </div>
+    <div id="users-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a class="ui-btn-active ui-state-persist" href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Users</h2>
+            <a href="#edit-user-page" data-role="button" data-theme="b" onclick="addUser()">Add user</a>
+            <ul id="users-list" class="ui-listview-inset" data-role="listview"></ul>
+        </section>
+    </div>
+    <div id="starred-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a class="ui-btn-active ui-state-persist" href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Starred posts</h2>
+        </section>
+    </div>
+    <div id="export-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a class="ui-btn-active ui-state-persist" href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Export post</h2>
+            <ul class="ui-listview-inset" data-role="listview" id="lvAll">
+                <li>
+                    <a>
+                        <h3>Title</h3>
+                        <p>Content</p>
+                    </a>
+                </li>
+            </ul>
+        </section>
+    </div>
+    <div id="edit-post-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Add/edit post</h2>
+            <form id="edit-post-form">
+                <label for="title">Title:</label>
+                <input id="title" name="title" type="text">
+                <label for="content">Content:</label>
+                <textarea id="content" name="content"></textarea>
+                <label for="content">User attribution:</label>
+                <select id="userId" name="userId"></select>
+                <label>
+                    <input id="starred" name="starred" type="checkbox">Starred?
+                </label>
+                <button id="edit-post-submit" type="button" data-theme="b" data-icon="edit">Submit</button>
+            </form>
+        </section>
+    </div>
+    <div id="edit-user-page" data-role="page">
+        <header data-position="fixed" data-role="header" data-theme="a">
+            <h1>Posts App</h1>
+            <div data-iconpos="top" data-role="navbar">
+                <ul>
+                    <li><a href="#posts-page" data-icon="grid" href="">Posts</a></li>
+                    <li><a href="#users-page" data-icon="user" href="">Users</a></li>
+                    <li><a href="#starred-page" data-icon="star" href="">Starred</a></li>
+                    <li><a href="#export-page" data-icon="forward" href="">Export</a></li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <h2>Add/edit user</h2>
+            <form id="edit-user-form">
+                <label for="name">Name:</label>
+                <input id="name" name="name" type="text">
+                <label for="bio">Bio:</label>
+                <textarea id="bio" name="bio"></textarea>
+                <button id="edit-user-submit" type="button" data-theme="b" data-icon="user">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <!-- <script type="text/javascript" src="cordova.js"></script> -->
+
+    <script type="text/javascript" src="js/database.js"></script>
+    <script type="text/javascript" src="js/stores.js"></script>
+    <script type="text/javascript" src="js/pages/posts.js"></script>
+    <script type="text/javascript" src="js/pages/users.js"></script>
+    <script type="text/javascript" src="js/pages/edit-post.js"></script>
+    <script type="text/javascript" src="js/pages/edit-user.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+</body>
+</html>
